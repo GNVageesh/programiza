@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await fetch(
-		"https://programmerapi-production.up.railway.app/api/questions"
+		"https://mongoexpressquiz-production.up.railway.app/api"
 	);
 	const data = await res.json();
 
@@ -96,7 +96,7 @@ const quiz = ({ data }) => {
 						onClick={() => {
 							router.push("/quiz/new");
 						}}
-						className="bg-blue-500 absolute bottom-0 right-0 m-4 w-12 h-12 hover:text-2xl transition duration-700 ease-in-out transform rounded-full border-0 outline-none text-white font-xl"
+						className="bg-blue-500 absolute bottom-0 right-0 m-4 w-12 h-12 text-xl hover:text-2xl transition duration-700 ease-in-out transform rounded-full border-0 outline-none text-white font-xl"
 					>
 						+
 					</button>

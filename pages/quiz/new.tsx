@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
-import Script from "next/script";
+import {useRouter} from "next/router"
 
 const NewQuiz = () => {
 	const [question, setQuestion] = useState("");
@@ -9,6 +9,7 @@ const NewQuiz = () => {
 	const [tags, setTags] = useState([]);
 	const [correct, setCorrect] = useState("");
 	const [diff, setDiff] = useState("");
+	const router = useRouter();
 
 	const data = { question, options, correct, tags, difficulty: diff };
 
@@ -27,10 +28,10 @@ const NewQuiz = () => {
 
 		await axios
 			.post(
-				"https://programmerapi-production.up.railway.app/api/questions",
+				"https://mongoexpressquiz-production.up.railway.app/api/create",
 				data
 			)
-			.then(() => alert("Added New Question"))
+			.then(() => router.push("/quiz"))
 			.catch((e) => alert(e.message));
 	};
 
